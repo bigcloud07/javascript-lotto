@@ -1,3 +1,5 @@
+import Lotto from "../src/Lotto.js";
+
 describe("당첨 번호 비교 test", () => {
   test("일치 개수가 3개일 때", () => {
     expect(
@@ -23,8 +25,8 @@ describe("당첨 번호 비교 test", () => {
 
 describe("당첨 번호 및 보너스 번호 비교 test", () => {
   test("5개 일치, 보너스 볼 일치", () => {
-    expect(new Lotto([1, 2, 3, 4, 5, 6]))
-      .calculateMatchCount([1, 2, 3, 4, 5, 11, 6])
-      .toBe(6);
+    expect(
+      new Lotto([1, 2, 3, 4, 5, 6]).calculateMatchCount([1, 2, 3, 4, 5, 11, 6])
+    ).toBe(6);
   });
 });
