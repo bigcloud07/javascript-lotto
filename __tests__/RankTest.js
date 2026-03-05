@@ -7,7 +7,7 @@ const getLogSpy = () => {
   return logSpy;
 };
 
-describe("당첨 통계 출력 test", () => {
+test("당첨 통계 출력 test: 3개 일치 - 1개", () => {
   const lottos = [
     new Lotto([8, 21, 23, 41, 42, 43]),
     new Lotto([3, 5, 11, 16, 32, 38]),
@@ -29,13 +29,11 @@ describe("당첨 통계 출력 test", () => {
     "6개 일치 (2,000,000,000원) - 0개",
   ];
 
-  test("3개 일치 - 1개", () => {
-    const logSpy = getLogSpy();
+  const logSpy = getLogSpy();
 
-    new Rank(lottos, winningNumbers, bonusNumbers).printStats();
+  new Rank(lottos, winningNumbers, bonusNumbers).printStats();
 
-    logs.forEach((log) =>
-      expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log))
-    );
-  });
+  logs.forEach((log) =>
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log))
+  );
 });
