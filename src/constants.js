@@ -1,3 +1,9 @@
+export const INPUT_MESSAGES = Object.freeze({
+  PURCHASE_AMOUNT: "구입금액을 입력해 주세요.\n",
+  WINNING_NUMBERS: "당첨 번호를 입력해 주세요.\n",
+  BONNUS_NUMBERS: "보너스 번호를 입력해 주세요.\n",
+});
+
 export const OUTPUT_MESSAGES = Object.freeze({
   STATS_HEADER: "당첨 통계\n--------------------\n",
   "5_BONUS_MATCH": "5개 일치, 보너스 볼 일치",

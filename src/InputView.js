@@ -1,3 +1,5 @@
+import { INPUT_MESSAGES } from "./constants";
+
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -19,14 +21,14 @@ export default class InputView {
   }
 
   static async readPurchaseAmount() {
-    return InputView.read("구입금액을 입력해 주세요.\n");
+    return InputView.read(INPUT_MESSAGES.PURCHASE_AMOUNT);
   }
 
   static readWinningNumbers() {
-    return InputView.read("당첨 번호를 입력해 주세요.\n");
+    return InputView.read(INPUT_MESSAGES.WINNING_NUMBERS);
   }
 
   static readBonusNumbers() {
-    return InputView.read("보너스 번호를 입력해 주세요.\n");
+    return InputView.read(INPUT_MESSAGES.BONNUS_NUMBERS);
   }
 }
