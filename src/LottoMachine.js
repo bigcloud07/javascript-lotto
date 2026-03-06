@@ -24,6 +24,8 @@ export default class LottoMachine {
       const lotto = new Lotto(lottoNumbers);
       this.lottos.push(lotto);
     });
+
+    return this.lottos;
   }
 
   printIssuedLottos() {
