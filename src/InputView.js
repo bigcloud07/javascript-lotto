@@ -37,7 +37,7 @@ export default class InputView {
   }
 
   static readWinningNumbers() {
-    return InputView.readValidInput(INPUT_MESSAGES.WINNING_NUMBERS);
+    return InputView.readValidInput("\n" + INPUT_MESSAGES.WINNING_NUMBERS);
   }
 
   static readBonusNumbers() {
