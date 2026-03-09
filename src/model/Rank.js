@@ -42,7 +42,7 @@ export default class Rank {
 
     console.log("\n" + OUTPUT_MESSAGES.STATS_HEADER);
 
-    Object.entries(this.stats).map(([key, { count, prize }]) => {
+    Object.entries(this.stats).forEach(([key, { count, prize }]) => {
       const displayKey =
         key === LOTTO_RULE["5_BONUS_MATCH"]
           ? OUTPUT_MESSAGES["5_BONUS_MATCH"]
