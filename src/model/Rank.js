@@ -1,4 +1,4 @@
-import { LOTTO_RULE, OUTPUT_MESSAGES } from "./constants.js";
+import { LOTTO_RULE, OUTPUT_MESSAGES } from "../constants";
 
 export default class Rank {
   constructor(lottos, winningNumbers, bonusNumbers) {
@@ -21,10 +21,7 @@ export default class Rank {
   // 결과 계산
   calculateStats() {
     this.lottos.forEach((lotto) => {
-      const matchCount = lotto.calculateMatchCount([
-        ...this.winningNumbers,
-        ...this.bonusNumbers,
-      ]);
+      const matchCount = lotto.calculateMatchCount(this.winningNumbers);
 
       if (matchCount < LOTTO_RULE["3_MATCH"]) return;
 
