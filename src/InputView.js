@@ -44,10 +44,10 @@ export default class InputView {
   }
 
   static async readBonusNumbers() {
-    const bonnusNumbers = await InputView.readValidInput(
+    const bonusNumbers = await InputView.readValidInput(
       INPUT_MESSAGES.BONNUS_NUMBERS
     );
-    return [Number(bonnusNumbers)];
+    return [Number(bonusNumbers)];
   }
 
   static async askRestart() {

@@ -1,15 +1,7 @@
 import { LOTTO_RULE } from "../src/constants.js";
 import Profit from "../src/Profit.js";
 
-// TODO: 공통 유틸로 분리
-const getLogSpy = () => {
-  const logSpy = jest.spyOn(console, "log");
-  logSpy.mockClear();
-  return logSpy;
-};
-
 test("수익률 계산 test", () => {
-  const logSpy = getLogSpy();
   const purchasedAmount = 1000;
 
   const stats = {
@@ -20,9 +12,7 @@ test("수익률 계산 test", () => {
     [LOTTO_RULE["6_MATCH"]]: { count: 0, prize: 2000000000 },
   };
 
-  Profit.printProfitRate(purchasedAmount, stats);
+  const profitRate = Profit.calculateProfit(purchasedAmount, stats);
 
-  expect(logSpy).toHaveBeenCalledWith(
-    expect.stringContaining(`총 수익률은 1000.0%입니다.`)
-  );
+  expect(profitRate).toBe(1000.0);
 });

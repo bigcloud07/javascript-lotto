@@ -10,7 +10,7 @@ export default class Profit {
 
   static calculateProfit(purchasedAmount, stats) {
     const totalPrize = this.sumPrize(stats);
-    return ((totalPrize / purchasedAmount) * 100).toFixed(1);
+    return Number(((totalPrize / purchasedAmount) * 100).toFixed(1));
   }
 
   static printProfitRate(purchasedAmount, stats) {
