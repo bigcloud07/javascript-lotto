@@ -12,9 +12,4 @@ export default class Profit {
     const totalPrize = this.sumPrize(stats);
     return Number(((totalPrize / purchasedAmount) * 100).toFixed(1));
   }
-
-  static printProfitRate(purchasedAmount, stats) {
-    const profitRate = this.calculateProfit(purchasedAmount, stats);
-    console.log(`총 수익률은 ${profitRate}%입니다.`);
-  }
 }

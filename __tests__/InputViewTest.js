@@ -1,4 +1,4 @@
-import InputView from "../src/InputView.js";
+import InputView from "../src/view/InputView.js";
 
 describe("입력 기능 test", () => {
   afterAll(() => {

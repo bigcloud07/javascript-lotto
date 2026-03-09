@@ -1,4 +1,4 @@
-import { LOTTO_RULE } from "./constants.js";
+import { LOTTO_RULE } from "../constants.js";
 import Lotto from "./Lotto.js";
 
 export default class LottoMachine {
@@ -24,19 +24,6 @@ export default class LottoMachine {
       const lotto = new Lotto(lottoNumbers);
       this.lottos.push(lotto);
     });
-
-    return this.lottos;
-  }
-
-  printIssuedLottos() {
-    this.lottos.forEach((lotto) => {
-      console.log(lotto.getNumbers());
-    });
-  }
-
-  run() {
-    this.issuedLottos();
-    this.printIssuedLottos();
 
     return this.lottos;
   }

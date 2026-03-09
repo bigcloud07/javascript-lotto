@@ -1,13 +1,12 @@
-import Lotto from "../src/Lotto.js";
-import Rank from "../src/Rank.js";
+import Lotto from "../src/model/Lotto.js";
+import Rank from "../src/model/Rank.js";
+import OutputView from "../src/view/OutputView.js";
 
 const getLogSpy = () => {
   const logSpy = jest.spyOn(console, "log");
   logSpy.mockClear();
   return logSpy;
 };
-
-// TODO: 각 등수별로 테스트 케이스 추가 필요
 
 describe("당첨 통계 출력 test", () => {
   const logSpy = getLogSpy();
@@ -84,7 +83,8 @@ describe("당첨 통계 출력 test", () => {
       ],
     ],
   ])("일치 내역: %s", (_, winningNumbers, bonusNumbers, logs) => {
-    new Rank(lottos, winningNumbers, bonusNumbers).printStats();
+    const stats = new Rank(lottos, winningNumbers, bonusNumbers).calculateStats();
+    OutputView.printStats(stats);
 
     logs.forEach((log) =>
       expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log))

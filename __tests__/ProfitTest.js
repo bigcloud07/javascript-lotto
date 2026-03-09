@@ -1,5 +1,5 @@
 import { LOTTO_RULE } from "../src/constants.js";
-import Profit from "../src/Profit.js";
+import Profit from "../src/model/Profit.js";
 
 test("수익률 계산 test", () => {
   const purchasedAmount = 1000;

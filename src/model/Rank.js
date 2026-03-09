@@ -1,4 +1,4 @@
-import { LOTTO_RULE, OUTPUT_MESSAGES } from "../constants";
+import { LOTTO_RULE, OUTPUT_MESSAGES } from "../constants.js";
 
 export default class Rank {
   constructor(lottos, winningNumbers, bonusNumbers) {
@@ -14,11 +14,6 @@ export default class Rank {
     };
   }
 
-  getStats() {
-    return this.stats;
-  }
-
-  // 결과 계산
   calculateStats() {
     this.lottos.forEach((lotto) => {
       const matchCount = lotto.calculateMatchCount(this.winningNumbers);
@@ -34,21 +29,10 @@ export default class Rank {
         this.stats[matchCount].count += 1;
       }
     });
+    return this.stats;
   }
 
-  // 결과 출력
-  printStats() {
-    this.calculateStats();
-
-    console.log("\n" + OUTPUT_MESSAGES.STATS_HEADER);
-
-    Object.entries(this.stats).forEach(([key, { count, prize }]) => {
-      const displayKey =
-        key === LOTTO_RULE["5_BONUS_MATCH"]
-          ? OUTPUT_MESSAGES["5_BONUS_MATCH"]
-          : `${key}개 일치`;
-
-      console.log(`${displayKey} (${prize.toLocaleString()}원) - ${count}개`);
-    });
+  getStats() {
+    return this.stats;
   }
 }

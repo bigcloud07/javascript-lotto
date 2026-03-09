@@ -1,4 +1,4 @@
-import { INPUT_MESSAGES } from "./constants.js";
+import { INPUT_MESSAGES } from "../constants.js";
 import readline from "readline";
 
 const rl = readline.createInterface({

@@ -7,6 +7,8 @@ export const INPUT_MESSAGES = Object.freeze({
 export const OUTPUT_MESSAGES = Object.freeze({
   STATS_HEADER: "당첨 통계\n--------------------\n",
   "5_BONUS_MATCH": "5개 일치, 보너스 볼 일치",
+  PROFIT_RATE_PREFIX: "총 수익률은 ",
+  PROFIT_RATE_SUFFIX: "%입니다.",
 });
 
 export const LOTTO_RULE = Object.freeze({
