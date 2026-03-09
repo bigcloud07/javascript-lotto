@@ -9,6 +9,7 @@ export const OUTPUT_MESSAGES = Object.freeze({
   "5_BONUS_MATCH": "5개 일치, 보너스 볼 일치",
   PROFIT_RATE_PREFIX: "총 수익률은 ",
   PROFIT_RATE_SUFFIX: "%입니다.",
+  PURCHASE_SUFFIX: "개를 구매했습니다."
 });
 
 export const LOTTO_RULE = Object.freeze({

@@ -15,7 +15,7 @@ export default class Rank {
   }
 
   calculateStats() {
-    this.lottos.forEach((lotto) => {
+    this.lottgios.forEach((lotto) => {
       const matchCount = lotto.calculateMatchCount(this.winningNumbers);
 
       if (matchCount < LOTTO_RULE["3_MATCH"]) return;

@@ -21,6 +21,10 @@ export default class OutputView {
     }
 
     static printProfitRate(profitRate) {
-    console.log(`${OUTPUT_MESSAGES.PROFIT_RATE_PREFIX}${profitRate}${OUTPUT_MESSAGES.PROFIT_RATE_SUFFIX}`);
-  }
+        console.log(`${OUTPUT_MESSAGES.PROFIT_RATE_PREFIX}${profitRate}${OUTPUT_MESSAGES.PROFIT_RATE_SUFFIX}`);
+    }
+
+    static purchasedLottoCount(count) {
+        console.log(`${count}${OUTPUT_MESSAGES.PURCHASE_SUFFIX}`);
+    }
 }

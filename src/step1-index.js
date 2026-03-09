@@ -15,7 +15,7 @@ class App {
     const purchasedAmount = await InputView.readPurchaseAmount();
     const lottoCount = purchasedAmount / LOTTO_RULE.LOTTO_PRICE;
 
-    console.log(`${lottoCount}개를 구매했습니다.`);
+    OutputView.purchasedLottoCount(lottoCount);
     const lottoMachine = new LottoMachine(purchasedAmount);
     const lottos = lottoMachine.issuedLottos();
 
