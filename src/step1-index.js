@@ -3,16 +3,17 @@
  * 브라우저 환경에서 사용하는 css 파일 등을 불러올 경우 정상적으로 빌드할 수 없습니다.
  */
 
-import { LOTTO_RANK_RULES } from "./constants.js";
+import { LOTTO_PRICE } from "./constants.js";
 import InputView from "./view/InputView.js";
 import LottoMachine from "./model/LottoMachine.js";
 import Profit from "./model/Profit.js";
 import Rank from "./model/Rank.js";
 import OutputView from "./view/OutputView.js";
+import { LottoValidator } from "./utils/validator.js";
 
 class App {
   async run() {
-    const purchasedAmount = await InputView.readPurchaseAmount();
+    const purchasedAmount = await InputView.readPurchaseAmount(LottoValidator.validatePurchaseAmount);
     const lottoCount = purchasedAmount / LOTTO_PRICE;
 
     OutputView.purchasedLottoCount(lottoCount);
@@ -22,9 +23,10 @@ class App {
 
     OutputView.printIssuedLottos(lottos);
 
-    const winningNumbers = await InputView.readWinningNumbers();
-    const bonusNumbers = await InputView.readBonusNumbers();
-
+    const winningNumbers = await InputView.readWinningNumbers(LottoValidator.validateWinningNumbers);
+    const bonusNumbers = await InputView.readBonusNumbers((input) =>
+      LottoValidator.validateBonusNumber(input, winningNumbers)
+    );
     const rank = new Rank(lottos, winningNumbers, bonusNumbers);
     rank.calculateStats();
     OutputView.printStats(rank.getStats());

@@ -15,16 +15,18 @@ export default class InputView {
     });
   }
 
-  static async readValidInput(query) {
+  static async readValidInput(query, validator) {
     try {
       const input = await InputView.read(query);
 
-      // TODO: 입력값 검증 로직 추가
+      if (validator) {
+        validator(input); 
+      }
 
       return input;
     } catch (err) {
-      console.log("[ERROR]");
-      return await InputView.readValidInput(query);
+      console.error(err.message);
+      return await InputView.readValidInput(query, validator);
     }
   }
 
@@ -32,20 +34,22 @@ export default class InputView {
     rl.close();
   }
 
-  static async readPurchaseAmount() {
-    return await InputView.readValidInput(INPUT_MESSAGES.PURCHASE_AMOUNT);
+  static async readPurchaseAmount(validator) {
+    return await InputView.readValidInput(INPUT_MESSAGES.PURCHASE_AMOUNT, validator);
   }
 
-  static async readWinningNumbers() {
+  static async readWinningNumbers(validator) {
     const winningNumbers = await InputView.readValidInput(
-      "\n" + INPUT_MESSAGES.WINNING_NUMBERS
+      "\n" + INPUT_MESSAGES.WINNING_NUMBERS,
+      validator 
     );
     return winningNumbers.split(",").map((num) => Number(num));
   }
 
-  static async readBonusNumbers() {
+  static async readBonusNumbers(validator) {
     const bonusNumbers = await InputView.readValidInput(
-      INPUT_MESSAGES.BONNUS_NUMBERS
+      INPUT_MESSAGES.BONNUS_NUMBERS,
+      validator
     );
     return [Number(bonusNumbers)];
   }
