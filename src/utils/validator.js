@@ -1,4 +1,4 @@
-export const LottoValidator = {
+export const InputValidator = {
   validatePurchaseAmount(input) {
     if (!input || input.trim() === "") {
       throw new Error("[ERROR] 구입 금액을 입력해 주세요.");

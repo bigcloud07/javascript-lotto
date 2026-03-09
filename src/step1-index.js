@@ -9,11 +9,11 @@ import LottoMachine from "./model/LottoMachine.js";
 import Profit from "./model/Profit.js";
 import Rank from "./model/Rank.js";
 import OutputView from "./view/OutputView.js";
-import { LottoValidator } from "./utils/validator.js";
+import { InputValidator } from "./utils/validator.js";
 
 class App {
   async run() {
-    const purchasedAmount = await InputView.readPurchaseAmount(LottoValidator.validatePurchaseAmount);
+    const purchasedAmount = await InputView.readPurchaseAmount(InputValidator.validatePurchaseAmount);
     const lottoCount = purchasedAmount / LOTTO_PRICE;
 
     OutputView.purchasedLottoCount(lottoCount);
@@ -23,9 +23,9 @@ class App {
 
     OutputView.printIssuedLottos(lottos);
 
-    const winningNumbers = await InputView.readWinningNumbers(LottoValidator.validateWinningNumbers);
+    const winningNumbers = await InputView.readWinningNumbers(InputValidator.validateWinningNumbers);
     const bonusNumbers = await InputView.readBonusNumbers((input) =>
-      LottoValidator.validateBonusNumber(input, winningNumbers)
+      InputValidator.validateBonusNumber(input, winningNumbers)
     );
     const rank = new Rank(lottos, winningNumbers, bonusNumbers);
     rank.calculateStats();
