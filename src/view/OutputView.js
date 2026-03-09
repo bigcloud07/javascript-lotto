@@ -1,4 +1,4 @@
-import { LOTTO_RULE, OUTPUT_MESSAGES } from "../constants.js";
+import { LOTTO_RANK_RULES, OUTPUT_MESSAGES } from "../constants.js";
 
 export default class OutputView {
     static printStats(stats) {
@@ -6,7 +6,7 @@ export default class OutputView {
 
         Object.entries(stats).forEach(([key, { count, prize }]) => {
             const displayKey =
-                key === LOTTO_RULE["5_BONUS_MATCH"]
+                key === LOTTO_RANK_RULES["5_BONUS_MATCH"]
                     ? OUTPUT_MESSAGES["5_BONUS_MATCH"]
                     : `${key}개 일치`;
 

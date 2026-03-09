@@ -12,12 +12,12 @@ export const OUTPUT_MESSAGES = Object.freeze({
   PURCHASE_SUFFIX: "개를 구매했습니다."
 });
 
-export const LOTTO_RULE = Object.freeze({
-  LOTTO_PRICE: 1000,
-
+export const LOTTO_RANK_RULES = Object.freeze({
   "3_MATCH": 3,
   "4_MATCH": 4,
   "5_MATCH": 5,
   "5_BONUS_MATCH": "5개 번호 + 보너스 번호 일치",
   "6_MATCH": 6,
 });
+
+export const LOTTO_PRICE = 1000;

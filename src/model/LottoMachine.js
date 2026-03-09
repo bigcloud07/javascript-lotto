@@ -1,9 +1,9 @@
-import { LOTTO_RULE } from "../constants.js";
+import { LOTTO_PRICE } from "../constants.js";
 import Lotto from "./Lotto.js";
 
 export default class LottoMachine {
   constructor(purchaseAmount) {
-    this.lottoCount = purchaseAmount / LOTTO_RULE.LOTTO_PRICE;
+    this.lottoCount = purchaseAmount / LOTTO_PRICE;
     this.lottos = [];
   }
 
