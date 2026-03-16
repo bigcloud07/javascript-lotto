@@ -21,7 +21,7 @@ main {
     align-items: flex-start;
     flex: 1;
     margin-top: 84px;
-    margin-bottom: 69px;
+    margin-bottom: 50px;
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.12);
 }
@@ -91,7 +91,7 @@ footer {
 
 .winning-numbers {
     display: flex;
-    gap: 1px;
+    gap: 5px;
 }
 
 .bonus-number {
@@ -113,6 +113,7 @@ footer {
 }
 
 .title.header {
+    margin: 0;
     background-color: var(--color-primary);
     color: var(--color-gray-scale-1);
     padding: 14px 0 14px 140px;
@@ -189,7 +190,7 @@ footer {
 }
 
 .modal-title {
-    margin: 0 0 16px;
+    margin: 0 0 24px;
     font-size: var(--font-size-subtitle);
     font-weight: var(--font-weight-semibold);
 }
@@ -214,6 +215,7 @@ footer {
 .stats-table th,
 .stats-table td {
     padding: 8px 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -222,7 +224,9 @@ footer {
 }
 
 .profit-text {
-    margin: 12px 0 16px;
+    margin: 30px 0;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
 }
 
 .button.restart {

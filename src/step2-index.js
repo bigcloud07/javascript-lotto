@@ -17,7 +17,7 @@ class App {
 
     run() {
         const purchasedAmountInput = document.getElementById("purchaseinput");
-        const purchaseButton = document.getElementById("purchasebutton");
+        const purchaseForm = document.getElementById("purchaseForm");
         const resultButton = document.getElementById("resultButton");
         const lottoCountElement = document.getElementById("lottoCount");
         const lottoDetailsElement = document.getElementById("lottoDetails");
@@ -29,7 +29,8 @@ class App {
         const profitRateElement = document.getElementById("profitRate");
         const restartButton = document.getElementById("restartButton");
 
-        purchaseButton.addEventListener("click", () => {
+        purchaseForm.addEventListener("submit", (event) => {
+            event.preventDefault();
             const purchaseAmount = purchasedAmountInput.value;
 
             try {
@@ -173,12 +174,10 @@ class App {
 
     showModal(modalElement) {
         modalElement.classList.remove("is-hidden");
-        modalElement.setAttribute("aria-hidden", "false");
     }
 
     hideModal(modalElement) {
         modalElement.classList.add("is-hidden");
-        modalElement.setAttribute("aria-hidden", "true");
     }
 
     resetView({ purchasedAmountInput, lottoCountElement, lottoDetailsElement, lottoListElement, modalElement }) {

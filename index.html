@@ -11,21 +11,27 @@
 
 <body>
   <div id="app">
-    <header class="title header">
-      🎱 행운의 로또
+    <header>
+      <h1 class="title header">
+        🎱 행운의 로또
+      </h1>
     </header>
     <main>
-      <p class="title main">
+      <h2 class="title main">
         🎱 내 번호 당첨 확인 🎱
-      </p>
+      </h2>
       <section class="lottoBody">
         <p>
           구입할 금액을 입력해주세요
         </p>
-        <div class="purchase-row">
-          <input type="number" class="placeholder" id="purchaseinput" placeholder="금액 입력" />
-          <button id="purchasebutton">구입</button>
-        </div>
+        <form class="purchase-form" id="purchaseForm">
+          <div class="purchase-row">
+            <label for="purchaseinput" class="visually-hidden">
+              <input type="number" class="placeholder" id="purchaseinput" placeholder="금액 입력" />
+              <button id="purchasebutton">구입</button>
+            </label>
+          </div>
+        </form>
 
         <div id="lottoCount"></div>
         <div id="lottoDetails" class="is-hidden">
@@ -76,11 +82,9 @@
       </div>
     </div>
   </div>
+  <footer class="caption">
+    Copyright 2023. woowacourse
+  </footer>
   <script type="module" src="./src/step2-index.js"></script>
 </body>
-
-<footer class="caption">
-  Copyright 2023. woowacourse
-</footer>
-
 </html>
