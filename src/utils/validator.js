@@ -26,9 +26,6 @@ export const InputValidator = {
 
     const numbers = input.split(",").map(num => Number(num.trim()));
 
-    if (numbers.some((num) => num === 0)) {
-      throw new Error(ERROR_MESSAGES.WINNING_NUMBERS.EMPTY);
-    }
     if (numbers.length !== 6) {
       throw new Error(ERROR_MESSAGES.WINNING_NUMBERS.NOT_SIX);
     }
