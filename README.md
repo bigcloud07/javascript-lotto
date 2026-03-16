@@ -35,3 +35,6 @@
 
 - [x] y를 입력하면 로또 게임을 다시 시작한다.
 - [x] n을 입력하면 로또 게임을 종료한다.
+
+## 2단계 - 웹 기반 로또 게임
+URL : https://bigcloud0.github.io/javascript-lotto
