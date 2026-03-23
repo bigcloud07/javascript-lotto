@@ -24,15 +24,15 @@ export const InputValidator = {
       throw new Error(ERROR_MESSAGES.WINNING_NUMBERS.EMPTY);
     }
 
-    const numbers = input.split(",").map(num => Number(num.trim()));
+    const numbers = input.split(",").map((num) => Number(num.trim()));
 
     if (numbers.length !== 6) {
       throw new Error(ERROR_MESSAGES.WINNING_NUMBERS.NOT_SIX);
     }
-    if (numbers.some(num => Number.isNaN(num))) {
+    if (numbers.some((num) => Number.isNaN(num))) {
       throw new Error(ERROR_MESSAGES.WINNING_NUMBERS.NOT_NUMBER);
     }
-    if (numbers.some(num => num < 1 || num > 45)) {
+    if (numbers.some((num) => num < 1 || num > 45)) {
       throw new Error(ERROR_MESSAGES.WINNING_NUMBERS.OUT_OF_RANGE);
     }
     const uniqueNumbers = new Set(numbers);
@@ -57,5 +57,5 @@ export const InputValidator = {
     if (winningNumbers.includes(bonusNumber)) {
       throw new Error(ERROR_MESSAGES.BONUS_NUMBER.DUPLICATED);
     }
-  }
+  },
 };

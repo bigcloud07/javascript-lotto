@@ -2,7 +2,7 @@ export default class Profit {
   static sumPrize(stats) {
     const totalPrize = Object.values(stats).reduce(
       (sum, { count, prize }) => sum + count * prize,
-      0
+      0,
     );
 
     return totalPrize;

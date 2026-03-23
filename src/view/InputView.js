@@ -20,7 +20,7 @@ export default class InputView {
       const input = await InputView.read(query);
 
       if (validator) {
-        validator(input); 
+        validator(input);
       }
 
       return input;
@@ -35,13 +35,16 @@ export default class InputView {
   }
 
   static async readPurchaseAmount(validator) {
-    return await InputView.readValidInput(INPUT_MESSAGES.PURCHASE_AMOUNT, validator);
+    return await InputView.readValidInput(
+      INPUT_MESSAGES.PURCHASE_AMOUNT,
+      validator,
+    );
   }
 
   static async readWinningNumbers(validator) {
     const winningNumbers = await InputView.readValidInput(
       "\n" + INPUT_MESSAGES.WINNING_NUMBERS,
-      validator 
+      validator,
     );
     return winningNumbers.split(",").map((num) => Number(num));
   }
@@ -49,7 +52,7 @@ export default class InputView {
   static async readBonusNumbers(validator) {
     const bonusNumbers = await InputView.readValidInput(
       INPUT_MESSAGES.BONNUS_NUMBERS,
-      validator
+      validator,
     );
     return [Number(bonusNumbers)];
   }

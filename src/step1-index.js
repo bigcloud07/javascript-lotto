@@ -13,7 +13,9 @@ import { InputValidator } from "./utils/validator.js";
 
 class App {
   async run() {
-    const purchasedAmount = await InputView.readPurchaseAmount(InputValidator.validatePurchaseAmount);
+    const purchasedAmount = await InputView.readPurchaseAmount(
+      InputValidator.validatePurchaseAmount,
+    );
     const lottoCount = purchasedAmount / LOTTO_PRICE;
 
     OutputView.purchasedLottoCount(lottoCount);
@@ -23,9 +25,11 @@ class App {
 
     OutputView.printIssuedLottos(lottos);
 
-    const winningNumbers = await InputView.readWinningNumbers(InputValidator.validateWinningNumbers);
+    const winningNumbers = await InputView.readWinningNumbers(
+      InputValidator.validateWinningNumbers,
+    );
     const bonusNumbers = await InputView.readBonusNumbers((input) =>
-      InputValidator.validateBonusNumber(input, winningNumbers)
+      InputValidator.validateBonusNumber(input, winningNumbers),
     );
     const rank = new Rank(lottos, winningNumbers, bonusNumbers);
     rank.calculateStats();

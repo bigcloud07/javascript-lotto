@@ -7,8 +7,25 @@ import { ERROR_MESSAGES } from "./constants.js";
 
 class App {
   constructor() {
-    this.view = new WebView();
-    this.input = new WebInput();
+    const domElements = {
+      purchaseInput: document.getElementById("purchaseinput"),
+      purchaseForm: document.getElementById("purchaseForm"),
+      resultButton: document.getElementById("resultButton"),
+      lottoCount: document.getElementById("lottoCount"),
+      lottoDetails: document.getElementById("lottoDetails"),
+      resultModal: document.getElementById("resultModal"),
+      modalClose: document.getElementById("modalClose"),
+      modalBackdrop: document.getElementById("modalBackdrop"),
+      statsBody: document.getElementById("statsBody"),
+      profitRate: document.getElementById("profitRate"),
+      restartButton: document.getElementById("restartButton"),
+      winningNumberInputs: document.querySelectorAll(
+        ".winning-numbers .number-input",
+      ),
+      bonusInput: document.querySelector(".bonus-number .number-input"),
+    };
+    this.view = new WebView(domElements);
+    this.input = new WebInput(domElements);
     this.lottos = [];
     this.purchaseAmount = 0;
   }
@@ -62,5 +79,5 @@ class App {
   }
 }
 
-const app = new App()
+const app = new App();
 app.run();
