@@ -2,7 +2,7 @@ export default class WebView {
   constructor({
     purchaseInput,
     purchaseForm,
-    resultButton,
+    resultForm,
     lottoCount,
     lottoDetails,
     lottoList,
@@ -17,7 +17,7 @@ export default class WebView {
   }) {
     this.purchaseInput = purchaseInput;
     this.purchaseForm = purchaseForm;
-    this.resultButton = resultButton;
+    this.resultForm = resultForm;
     this.lottoCount = lottoCount;
     this.lottoDetails = lottoDetails;
     this.lottoList = lottoList;
@@ -30,6 +30,7 @@ export default class WebView {
     this.winningNumberInputs = Array.from(winningNumberInputs);
     this.bonusInput = bonusInput;
   }
+
   onPurchaseSubmit(handler) {
     this.purchaseForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -37,8 +38,11 @@ export default class WebView {
     });
   }
 
-  onResultClick(handler) {
-    this.resultButton.addEventListener("click", () => handler());
+  onResultSubmit(handler) {
+    this.resultForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handler();
+    });
   }
 
   onRestartClick(handler) {

@@ -10,7 +10,7 @@ class App {
     const domElements = {
       purchaseInput: document.getElementById("purchaseinput"),
       purchaseForm: document.getElementById("purchaseForm"),
-      resultButton: document.getElementById("resultButton"),
+      resultForm: document.getElementById("lottoResultForm"),
       lottoCount: document.getElementById("lottoCount"),
       lottoDetails: document.getElementById("lottoDetails"),
       lottoList: document.getElementById("issued-lottos"),
@@ -48,7 +48,7 @@ class App {
       }
     });
 
-    this.view.onResultClick(() => {
+    this.view.onResultSubmit(() => {
       try {
         if (this.lottos.length === 0) {
           throw new Error(ERROR_MESSAGES.PURCHASE_AMOUNT.EMPTY);

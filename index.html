@@ -39,29 +39,31 @@
           <div id="issued-lottos"></div>
         </section>
         <section id="lottoDetails" class="is-hidden">
-          <div>
-            지난 주 당첨번호 6개와 보너스 번호 1개를 입력해주세요.
-          </div>
-          <div>
-            <div class="number-label-row">
-              <p>당첨 번호</p>
-              <p>보너스 번호</p>
-            </div>
-            <div class="number-input-row">
-              <div class="winning-numbers">
-                <input type="text" class="number-input" maxlength="2" />
-                <input type="text" class="number-input" maxlength="2" />
-                <input type="text" class="number-input" maxlength="2" />
-                <input type="text" class="number-input" maxlength="2" />
-                <input type="text" class="number-input" maxlength="2" />
-                <input type="text" class="number-input" maxlength="2" />
+          <form id="lottoResultForm">
+            <p>
+              지난 주 당첨번호 6개와 보너스 번호 1개를 입력해주세요.
+            </p>
+            <div>
+              <div class="number-label-row">
+                <p>당첨 번호</p>
+                <p>보너스 번호</p>
               </div>
-              <div class="bonus-number">
-                <input type="text" class="number-input" maxlength="2" />
+              <div class="number-input-row">
+                <ul class="winning-numbers">
+                  <li><input type="text" class="number-input" maxlength="2" /></li>
+                  <li><input type="text" class="number-input" maxlength="2" /></li>
+                  <li><input type="text" class="number-input" maxlength="2" /></li>
+                  <li><input type="text" class="number-input" maxlength="2" /></li>
+                  <li><input type="text" class="number-input" maxlength="2" /></li>
+                  <li><input type="text" class="number-input" maxlength="2" /></li>
+                </ul>
+                <ul class="bonus-number">
+                  <li><input type="text" class="number-input" maxlength="2" /></li>
+                </ul>
               </div>
             </div>
-          </div>
-          <button class="button result" id="resultButton">결과 확인하기</button>
+            <button class="button result" id="resultButton" type="submit">결과 확인하기</button>
+          </form>
         </section>
       </div>
     </main>
