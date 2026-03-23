@@ -1,4 +1,3 @@
-// DOM 관련 렌더링을 담당하는 클래스
 export default class WebView {
   constructor({
     purchaseInput,
@@ -6,27 +5,31 @@ export default class WebView {
     resultButton,
     lottoCount,
     lottoDetails,
-    resultModal,
+    lottoList,
+    modal,
     modalClose,
     modalBackdrop,
     statsBody,
     profitRate,
     restartButton,
+    winningNumberInputs,
+    bonusInput,
   }) {
     this.purchaseInput = purchaseInput;
     this.purchaseForm = purchaseForm;
     this.resultButton = resultButton;
     this.lottoCount = lottoCount;
     this.lottoDetails = lottoDetails;
-    this.modal = resultModal;
+    this.lottoList = lottoList;
+    this.modal = modal;
     this.modalClose = modalClose;
     this.modalBackdrop = modalBackdrop;
     this.statsBody = statsBody;
     this.profitRate = profitRate;
     this.restartButton = restartButton;
-    this.lottoList = this.createLottoListElement();
+    this.winningNumberInputs = Array.from(winningNumberInputs);
+    this.bonusInput = bonusInput;
   }
-
   onPurchaseSubmit(handler) {
     this.purchaseForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -75,28 +78,17 @@ export default class WebView {
 
   reset() {
     this.purchaseInput.value = "";
+    this.winningNumberInputs.forEach((input) => {
+      input.value = "";
+    });
+
+    this.bonusInput.value = "";
+
     this.lottoCount.innerText = "";
     this.lottoCount.classList.remove("error");
     this.lottoDetails.classList.add("is-hidden");
     this.lottoList.innerHTML = "";
     this.hideModal();
-
-    document
-      .querySelectorAll(".winning-numbers .number-input")
-      .forEach((input) => {
-        input.value = "";
-      });
-
-    const bonusInput = document.querySelector(".bonus-number .number-input");
-    if (bonusInput) bonusInput.value = "";
-  }
-
-  createLottoListElement() {
-    const lottoCountElement = document.getElementById("lottoCount");
-    const lottoListElement = document.createElement("div");
-    lottoListElement.id = "issued-lottos";
-    lottoCountElement.insertAdjacentElement("afterend", lottoListElement);
-    return lottoListElement;
   }
 
   renderLottos(lottos) {
